@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Published EU-control price",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["price_nok", "currency", "price_type", "evidence_text"],
+  "properties": {
+    "price_nok": { "anyOf": [{ "type": "number", "minimum": 0 }, { "type": "null" }] },
+    "currency": { "type": "string", "const": "NOK" },
+    "price_type": { "type": "string", "enum": ["fixed", "from", "unknown"] },
+    "evidence_text": { "anyOf": [{ "type": "string", "maxLength": 160 }, { "type": "null" }] }
+  }
+}

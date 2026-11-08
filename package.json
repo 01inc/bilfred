@@ -1,0 +1,15 @@
+{
+  "name": "bilfred",
+  "private": true,
+  "packageManager": "pnpm@12.18.0",
+  "engines": { "node": "24.15.0" },
+  "scripts": {
+    "research:workshops:pilot": "node scripts/pilot-workshop-enrichments.mjs",
+    "research:price": "node scripts/test-exa-price.mjs",
+    "research:discovery": "node scripts/test-exa-discovery.mjs",
+    "research:oslo": "node scripts/test-exa-discovery.mjs --oslo",
+    "research:maintenance": "node scripts/research-maintenance.mjs",
+    "verify:api": "node scripts/verify-api.mjs"
+  },
+  "devDependencies": { "ajv": "8.17.1" }
+}

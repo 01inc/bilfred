@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bilfred Workshop Enrichment v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.1"
+    },
+    "approval_id": {
+      "type": "string"
+    },
+    "eu_control_price": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount_nok": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "price_type": {
+          "type": "string",
+          "enum": [
+            "fixed",
+            "from",
+            "unknown"
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "amount_nok",
+        "price_type",
+        "source_url"
+      ]
+    },
+    "reputation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rating": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 5
+        },
+        "review_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "rating",
+        "review_count",
+        "source_url"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "approval_id",
+    "eu_control_price",
+    "reputation"
+  ]
+}

@@ -31,3 +31,15 @@ xcuserdata/
 .vercel
 .env*
 !.env.example
+
+# Generated native project and tool caches; regenerate from project.yml.
+*.xcodeproj/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Supplied demo photography has no documented redistribution grant.
+apps/ios/Bilfred/Resources/superb.png
+apps/api/bilfred/assets/superb.webp
+
+*.tsbuildinfo

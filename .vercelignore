@@ -1,0 +1,11 @@
+.local
+.env
+.env.*
+apps/api
+apps/ios
+contracts
+scripts
+node_modules
+**/node_modules
+**/.next
+**/*.tsbuildinfo

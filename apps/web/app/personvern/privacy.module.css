@@ -1,0 +1,6 @@
+.page { max-width: 740px; margin: 0 auto; padding: 60px 24px 100px; color: #d5d1e0; font-size: 16px; line-height: 1.75; }
+.page h1 { color: #fff; font-size: 48px; font-weight: 500; letter-spacing: -2px; margin-top: 50px; }
+.page h2 { color: #fff; font-size: 20px; font-weight: 500; margin-top: 34px; }
+.page p { margin-top: 12px; }
+.page a { text-underline-offset: 4px; }
+.back { text-decoration: none; font-size: 20px; color: #fff; }

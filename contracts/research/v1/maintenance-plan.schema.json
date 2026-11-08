@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "items", "limitations"],
+  "properties": {
+    "schema_version": {"type": "integer", "const": 2},
+    "items": {
+      "type": "array", "minItems": 4, "maxItems": 8,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "title", "summary", "why", "interval_km", "interval_months", "applicability", "proposed_month_offset", "proposal_reason", "source_url", "source_title"],
+        "properties": {
+          "id": {"type": "string", "enum": ["oil_service", "inspection", "brake_fluid", "cabin_filter", "gearbox_service", "timing_belt", "brakes", "tires", "battery_check", "spark_plugs", "air_filter"]},
+          "title": {"type": "string", "maxLength": 80},
+          "summary": {"type": "string", "maxLength": 180},
+          "why": {"type": "string", "maxLength": 900},
+          "interval_km": {"anyOf": [{"type": "integer", "minimum": 1, "maximum": 500000}, {"type": "null"}]},
+          "interval_months": {"anyOf": [{"type": "integer", "minimum": 1, "maximum": 240}, {"type": "null"}]},
+          "applicability": {"type": "string", "enum": ["model_guidance", "general_guidance", "requires_variant_confirmation"]},
+          "proposed_month_offset": {"type": "integer", "minimum": 0, "maximum": 24},
+          "proposal_reason": {"type": "string", "maxLength": 400},
+          "source_url": {"type": "string", "minLength": 10, "maxLength": 1000},
+          "source_title": {"type": "string", "maxLength": 160}
+        }
+      }
+    },
+    "limitations": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 500}}
+  }
+}

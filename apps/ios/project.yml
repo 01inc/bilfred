@@ -1,0 +1,73 @@
+name: Bilfred
+options:
+  developmentLanguage: nb
+  minimumXcodeGenVersion: 2.46.0
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "5"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+packages:
+  ConfettiSwiftUI:
+    url: https://github.com/simibac/ConfettiSwiftUI.git
+    exactVersion: 3.0.0
+targets:
+  Bilfred:
+    type: application
+    platform: iOS
+    sources:
+      - path: Bilfred
+    dependencies:
+      - package: ConfettiSwiftUI
+    info:
+      path: Bilfred/Info.plist
+      properties:
+        CFBundleDisplayName: Bilfred
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        BilfredAPIBaseURL: "$(BILFRED_API_BASE_URL)"
+        UILaunchScreen: {}
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSLocationWhenInUseUsageDescription: Bilfred bruker området du er i for å finne verksteder i nærheten.
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bilfred.ios
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_CFBundleDisplayName: Bilfred
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: Bilfred bruker området du er i for å finne verksteder i nærheten.
+        INFOPLIST_KEY_BilfredAPIBaseURL: "$(BILFRED_API_BASE_URL)"
+        BILFRED_API_BASE_URL: "http:/$()/localhost:8008"
+  BilfredUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [BilfredUITests]
+    dependencies:
+      - target: Bilfred
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bilfred.ios.uitests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Bilfred:
+    build:
+      targets:
+        Bilfred: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+    test:
+      config: Debug
+      targets: [BilfredUITests]

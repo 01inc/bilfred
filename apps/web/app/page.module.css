@@ -1,0 +1,39 @@
+.page { min-height: 100svh; overflow: hidden; background: radial-gradient(ellipse 100% 60% at 50% 110%, #8c879d 0%, #46415e 31%, #211c3d 55%, transparent 85%), linear-gradient(180deg, #08070c 0%, #080711 42%, #141025 100%); }
+.header { max-width: 1280px; margin: 0 auto; padding: 38px 48px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-size: 27px; font-weight: 650; letter-spacing: -1.3px; text-decoration: none; }
+.main { max-width: 1160px; margin-inline: auto; padding: 72px 40px 82px; text-align: center; }
+.intro { display: flex; align-items: center; justify-content: center; gap: 8px; color: #bdb8cb; font-size: 12px; letter-spacing: .06em; margin-bottom: 28px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: #c1b7ef; box-shadow: 0 0 13px #b8a2ff55; }
+.main h1 { font-size: clamp(46px, 6.4vw, 82px); font-weight: 500; letter-spacing: -.065em; line-height: 1.05; margin: 0; }
+.main h1 span { color: #f2effa; }
+.description { color: #bdb9cb; font-size: 18px; line-height: 1.65; letter-spacing: -.25px; margin: 27px 0 0; }
+.waitlist { margin: 44px auto 0; scroll-margin-top: 35px; max-width: 520px; }
+.steps { margin: 88px auto 0; padding-top: 27px; border-top: 1px solid #ffffff20; display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; max-width: 850px; text-align: left; }
+.steps > div > span { font-size: 11px; color: #aca5c4; }
+.steps h2 { font-size: 15px; font-weight: 500; letter-spacing: -.2px; margin: 12px 0 7px; }
+.steps p { font-size: 12px; line-height: 1.7; color: #c3bdcf; margin: 0; max-width: 220px; }
+.footer { display: flex; justify-content: space-between; gap: 24px; max-width: 1280px; margin: 0 auto; padding: 30px 48px; color: #ddd8e4; font-size: 11px; }
+.footer a { text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.skip { position: absolute; top: -100px; left: 16px; z-index: 5; padding: 12px; background: #fff; color: #000; }
+.skip:focus { top: 16px; }
+@media (min-height: 1000px) { .main { padding-top: 100px; padding-bottom: 100px; } }
+@media (max-width: 640px) {
+ .header { padding: 26px 24px; } .brand { font-size: 24px; }
+ .main { padding: 65px 24px 54px; } .main h1 { font-size: clamp(39px, 9.5vw, 60px); letter-spacing: -.06em; }
+ .description { font-size: 16px; margin-top: 24px; } .intro { margin-bottom: 22px; }
+ .waitlist { margin-top: 35px; } .steps { margin-top: 60px; gap: 22px; grid-template-columns: 1fr; }
+ .steps > div { display: grid; grid-template-columns: 24px 1fr; column-gap: 16px; } .steps h2 { margin: 0 0 5px; } .steps p { grid-column: 2; max-width: none; }
+ .footer { padding: 24px; font-size: 10px; flex-wrap: wrap; } .footer span:last-child { width: 100%; }
+}
+
+.market { max-width: 850px; margin: 64px auto 0; padding-top: 30px; border-top: 1px solid #ffffff20; text-align: left; }
+.market > h2 { font-size: 15px; font-weight: 500; margin: 0 0 25px; color: #ded9e9; }
+.figures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+.figures strong { font-size: clamp(32px, 4vw, 49px); font-weight: 500; letter-spacing: -2px; }
+.figures strong span { font-size: .55em; letter-spacing: -1px; }
+.figures p { font-size: 13px; color: #cdc7d9; margin: 8px 0 0; }
+.sources { color: #c4bdd0; font-size: 11px; line-height: 1.7; margin-top: 25px; max-width: 580px; }
+.sources summary { cursor: pointer; }
+.sources a { text-underline-offset: 3px; }
+@media (max-width: 640px) { .figures { gap: 20px; } .figures strong { font-size: 31px; letter-spacing: -1.5px; } .sources { font-size: 11px; } }

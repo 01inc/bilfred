@@ -1,50 +1,53 @@
 # Bilfred Build Plan
 
-## Accepted Direction
+## Implemented Journey
 
-Bilfred is a new repository and application. Strate is paused and preserved.
-The current instruction supersedes the earlier offline-only infrastructure scope:
-prepare a dedicated GCP project using the existing authorized account, a separate
-Vercel project, and a future PostgreSQL-backed technical-vehicle lookup.
+Native registration input → vehicle reveal → entered mileage → car cover and
+connected maintenance timeline → three workshop options on a map → requested
+date/time → offer and example payment choice → swipe acceptance → demo history.
 
-The first product interaction is registration entry -> fresh cache or Vegvesen ->
-vehicle presentation. The user will provide the complete UI/UX vision after the
-engineering handoff. Do not build the screens before that discussion.
+The interface uses adaptive neutral surfaces, system typography and blue accents.
+Onboarding centers the content above bottom actions. Text inputs have a keyboard
+close control. Blocking loads show a centered spinner. A short confetti burst
+marks acceptance, with Reduce Motion respected.
 
-## Verified State
+## Data And Services
 
-- Separate local repository initialized with private handoff/credential exclusions.
-- Private GitHub repository created for the source bootstrap.
-- Fresh GCP project and dedicated inactive CLI configuration created, with billing
-  linked to the existing dedicated account. Global defaults remain unchanged.
-- A NOK 500 monthly alert budget covers Bilfred and retained Strate resources,
-  with 50%, 80%, 100% and forecasted 100% thresholds, excluding credits.
-  This is an alert budget, not a hard spending cap.
-- Separate Vercel project created and locally linked: Next.js, Node 24.x,
-  apps/web root. No frontend has been built or deployed, and Git auto-deployment
-  is not connected while the application root does not yet exist.
-- Public Vegvesen Swagger and OpenAPI endpoints return HTTP 200.
-- Unauthenticated technical-vehicle endpoint returns HTTP 401. This establishes
-  network and authentication-gateway reachability, not authenticated lookup success.
-- One authenticated real-registration lookup returned HTTP 200 with one vehicle
-  in 860 ms. The private response includes vehicle identity and EU-control fields.
-  This is a single observed request, not a latency or availability guarantee.
-- Strate Cloud Run is manually scaled to zero, Cloud SQL is STOPPED with activation
-  NEVER, and its queue/scheduler are paused. Its NAT was removed and reserved
-  outbound IP released. Source code, database contents, evidence and backups remain.
-  Retained storage, backup and database-IP costs may continue. Vercel pause was
-  confirmed by the user; independent HTTP verification returns 503 with the
-  deployment-paused message.
-- No native app, frontend, PostgreSQL cache, payment or booking integration exists yet.
+The FastAPI backend supports vehicle lookup/cache, driver mileage, maintenance
+research/cache, three ranked options, versioned offers, idempotent acceptance and
+mutable demo booking requests. PostgreSQL has six explicit migrations; runtime
+startup never applies DDL. Workshop records and Exa enrichment are cached per
+entity. Location is approximated to an area before server research.
 
-## Next Steps
+The official EU deadline comes from Statens vegvesen. Researched maintenance
+intervals and proposed future dates remain separate. Drivers can record completed
+work, because mileage alone cannot establish service history.
 
-1. Complete and record the foundation/API checks in the private handoff.
-2. Discuss the user's complete product vision in this repository.
-3. Define vehicle response mapping and a server-only, bounded cache policy.
-4. Implement the connected path with explicit cached-data fallback, then qualify
-   the native journey and distribution on the intended phone.
+## Demonstration Boundaries
 
-No failed or unavailable API request may overwrite a prior successful vehicle
-record. Preserve fetched-at, source and schema version; store driver mileage
-separately. Test authentication errors, not-found responses and provider outages.
+- Exactly three options with price and reputation; demo values can fill gaps.
+- Apple Pay and Vipps are example selections, without payment SDKs or charges.
+- Acceptance saves a demo receipt, without reserving or confirming a workshop time.
+- History supports simulated rescheduling and completion.
+- Failed live lookups preserve valid cached facts and their original retrieval time.
+- Public source contains synthetic fixtures; private responses, deployment mappings,
+  signing material and supplied photography remain outside Git.
+
+## Qualification And Next Work
+
+The backend suite covers ownership, concurrent retries, offer immutability,
+booking changes and cache preservation. Native UI tests cover keyboard/loading
+states and the complete option/time/payment/swipe/history/relaunch sequence.
+TestFlight is the device distribution path. Test evidence and deployment receipts
+are kept privately rather than embedded as customer data in the repository.
+
+Actual workshop availability, contracted offers, fulfillment and payment remain
+future integration work. Bilfred Fleet remains future scope.
+
+## Landing Page And Waitlist
+
+A responsive Next.js landing page uses the keynote gradient and market figures
+with dated sources. The waitlist requires explicit consent and validates email on
+both the web server and FastAPI. A server-only key protects the API; PostgreSQL
+stores consent text, version, timestamp and expiry. Daily cleanup removes expired
+signups and short-lived abuse counters. No tracking or automatic outreach is used.
