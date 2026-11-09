@@ -1,5 +1,9 @@
 # Bilfred
 
+**Archived on 9 November 2026.** Development is paused after the hackathon.
+The hosted website and API have been retired. Source remains available as a
+reference; running the connected experience requires your own infrastructure.
+
 A native iPhone demo for planning car maintenance in Norway. Enter a registration
 number, add the mileage, review a maintenance timeline, compare three nearby
 workshops, choose a time and accept a service offer. Accepted offers appear in
@@ -59,6 +63,6 @@ excluded. A public checkout uses synthetic fixtures and a car illustration.
 See [third-party notices](THIRD_PARTY_NOTICES.md) and
 [the Vegvesen API mapping](docs/VEGVESEN_API.md).
 
-The public landing page is [bilfred.com](https://bilfred.com). Bilfred Fleet remains
-future scope. This repository is publicly
+The former landing page at bilfred.com is offline. Bilfred Fleet was not built.
+This repository is publicly
 viewable; no open-source license for Bilfred's own code is granted at this time.

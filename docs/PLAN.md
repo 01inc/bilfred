@@ -1,5 +1,12 @@
 # Bilfred Build Plan
 
+## Archived
+
+Development was paused on 9 November 2026 after the hackathon. The hosted website
+and API were retired, and private database backups, builds and recovery notes are
+preserved locally. The sections below describe the final implementation, not an
+active delivery plan. Do not provision services or restart research automatically.
+
 ## Implemented Journey
 
 Native registration input → vehicle reveal → entered mileage → car cover and
